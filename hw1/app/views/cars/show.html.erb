@@ -1,0 +1,34 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <strong>Make:</strong>
+  <%= @car.make.name %>   <!--.name was added to display the name of the make on Car creation-->
+</p>
+
+<p>
+  <strong>Model:</strong>
+  <%= @car.model %>
+</p>
+
+<!-- Part does not currently exist in the car form, as the relationship was
+added after the auto-generated code of the scaffolds, so the following block was
+added to have the Part objects load from the parts table.
+Citation: From PPP 03ActiveRecord, slide 39-->
+<p>
+  <strong>Parts:</strong>
+</p>
+  <ul>
+      <% @car.parts.each do |part| %>
+        <li><%= part.name %></li>
+      <% end %>
+  </ul>
+
+  
+
+<p>
+  <strong>Vin:</strong>
+  <%= @car.vin %>
+</p>
+
+<%= link_to 'Edit', edit_car_path(@car) %> |
+<%= link_to 'Back', cars_path %>

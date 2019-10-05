@@ -1,0 +1,44 @@
+<%= form_with(model: car, local: true) do |form| %>
+  <% if car.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(car.errors.count, "error") %> prohibited this car from being saved:</h2>
+
+      <ul>
+      <% car.errors.full_messages.each do |message| %>
+        <li><%= message %></li>
+      <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <div class="field">
+    <%= form.label :make_id %>
+    <!-- <%= form.text_field :make_id %> -->
+    <%= form.collection_select(:make_id, Make.all, :id, :name) %>
+    <!-- Could not figure out how to get textfields to lookup the make by name rather than ID,
+    so instead I made a dropdown menu, with help from:
+    https://stackoverflow.com/questions/8907867/can-someone-explain-collection-select-to-me-in-clear-simple-terms -->
+  </div>
+
+  <div class="field">
+    <%= form.label :model %>
+    <%= form.text_field :model %>
+  </div>
+
+  <!--The following <div block was added to allow parts to be selected as a checklist, 
+  allowing for multiple selections.  Citation:  From PPP 03ActiveRecord, slide 38 and
+  https://apidock.com/rails/v4.0.2/ActionView/Helpers/FormBuilder/collection_check_boxes -->
+  <div class="field">
+    <%= form.label :part_id %>
+    <%= form.collection_check_boxes(:part_ids, Part.all, :id, :name) %>
+  </div>
+
+  <div class="field">
+    <%= form.label :vin %>
+    <%= form.text_field :vin %>
+  </div>
+
+  <div class="actions">
+    <%= form.submit %>
+  </div>
+<% end %>
