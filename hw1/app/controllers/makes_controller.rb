@@ -21,6 +21,12 @@ class MakesController < ApplicationController
   def edit
   end
 
+ #SEARCH    To search makes in the database, source: Slide 31 from 06RoutesSearch Slideset
+  def search 
+    @makes = Make.where("name like ?", "%#{params[:query]}%")
+    render :index
+  end
+
   # POST /makes
   # POST /makes.json
   def create

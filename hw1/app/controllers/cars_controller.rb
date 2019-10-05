@@ -15,18 +15,19 @@ class CarsController < ApplicationController
   # GET /cars/new
   def new
     @car = Car.new
-    @parts = Part.all     #When a new car object is to be created,
-                        #this evocation will allow any existing parts
-                        #to be selected at creation time.  
-                        #Citation: Guided by 03ActiveRecord PPP slide 33
+    @parts = Part.all
   end
 
   # GET /cars/1/edit
   def edit
-    @parts = Part.all     #When a new car object is to be edited,
-                          #this evocation will allow any existing parts
-                          #to be selected at the time of the edit.
-                          #Citation: Guided by 03ActiveRecord PPP slide 33
+    @parts = Part.all    
+  end
+
+   #SEARCH    To search vins from cars in the database, source: Slide 31 from 06RoutesSearch Slideset
+  def search 
+    #@cars = Car.where("vin like ?", "%#{params[:query]}%")
+    @cars = Car.where("vin like :search OR model like :search", search: "%#{params[:query]}%")
+    render :index
   end
 
   # POST /cars

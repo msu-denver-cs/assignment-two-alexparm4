@@ -2,6 +2,12 @@
 
 <h1>Cars</h1>
 
+<%= form_tag(search_cars_url, method: "get") do %>   <!-- Add search for to html for VIN and model of car -->
+  <%= label_tag(:query, "Search by VIN or Model:") %>
+  <%= text_field_tag(:query) %>
+  <%= submit_tag("Search") %>
+<% end %>
+
 <table>
   <thead>
     <tr>

@@ -21,6 +21,12 @@ class PartsController < ApplicationController
   def edit
   end
 
+  #SEARCH    To search parts in the database, source: Slide 31 from 06RoutesSearch Slideset
+  def search 
+      @parts = Part.where("name like ?", "%#{params[:query]}%")
+      render :index
+  end
+
   # POST /parts
   # POST /parts.json
   def create

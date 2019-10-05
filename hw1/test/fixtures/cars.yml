@@ -9,3 +9,8 @@ two:
   make: two
   model: MyString
   vin: MyString
+
+three:
+  make: Toyota
+  model: Camry
+  vin: 1234567890K
