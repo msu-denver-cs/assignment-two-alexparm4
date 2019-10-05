@@ -1,10 +1,10 @@
 Rails.application.routes.draw do
-  resources :cars do   #parts made into a searchable collection,
+  resources :cars do   #cars made into a searchable collection,
     collection do       #citation: Slide 30 from 06RoutesSearch
       get 'search'
     end
   end
-  resources :makes do   #parts made into a searchable collection,
+  resources :makes do   #makes made into a searchable collection,
     collection do       #citation: Slide 30 from 06RoutesSearch
       get 'search'
     end

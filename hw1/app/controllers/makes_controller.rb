@@ -23,7 +23,7 @@ class MakesController < ApplicationController
 
  #SEARCH    To search makes in the database, source: Slide 31 from 06RoutesSearch Slideset
   def search 
-    @makes = Make.where("name like ?", "%#{params[:query]}%")
+    @makes = Make.where("name like :search OR country like :search", search: "%#{params[:query]}%")
     render :index
   end
 

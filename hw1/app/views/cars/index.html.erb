@@ -21,7 +21,7 @@
   <tbody>
     <% @cars.each do |car| %>
       <tr>
-        <td><%= car.make.name %></td>   <!-- Displays the name of the Make, rather than the id -->
+        <td><%= car.make.name if car.make %></td>   <!-- Displays the name of the Make, rather than the id; added "if car.make" to not allow nil values -->
         <td><%= car.model %></td>
         <td><%= car.vin %></td>
         <td><%= link_to 'Show', car %></td>

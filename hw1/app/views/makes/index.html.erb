@@ -3,7 +3,7 @@
 <h1>Makes</h1>
 
 <%= form_tag(search_makes_url, method: "get") do %>   <!-- Add search for to html for makes -->
-  <%= label_tag(:query, "Search for:") %>
+  <%= label_tag(:query, "Search by name or country:") %>
   <%= text_field_tag(:query) %>
   <%= submit_tag("Search") %>
 <% end %>

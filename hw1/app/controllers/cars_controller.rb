@@ -23,10 +23,13 @@ class CarsController < ApplicationController
     @parts = Part.all    
   end
 
-   #SEARCH    To search vins from cars in the database, source: Slide 31 from 06RoutesSearch Slideset
+   #SEARCH    To search vins & models from cars in the database, source: Slide 31 from 06RoutesSearch Slideset
   def search 
-    #@cars = Car.where("vin like ?", "%#{params[:query]}%")
+  
     @cars = Car.where("vin like :search OR model like :search", search: "%#{params[:query]}%")
+    #Figure out search for makes or delete this
+    #@cars = Car.where("car.make.name like :search", search: "%#{params[:query]}%")
+    #if @cars = nil
     render :index
   end
 

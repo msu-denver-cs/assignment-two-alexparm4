@@ -31,7 +31,6 @@ class MakeTest < ActiveSupport::TestCase
       s.errors.messages)
   end
 
-
   test "should not allow for less than 3 character country" do
     s = Make.create({:name => "aa", :country => "US"})
     refute s.valid?

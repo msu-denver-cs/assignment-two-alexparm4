@@ -3,12 +3,12 @@
 one:
   make: one
   model: MyString
-  vin: MyString
+  vin: MYSTRING0101010
 
 two:
   make: two
-  model: MyString
-  vin: MyString
+  model: MyModel
+  vin: 0101001011MyString
 
 three:
   make: Toyota
