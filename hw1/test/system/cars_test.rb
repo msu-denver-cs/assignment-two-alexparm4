@@ -3,7 +3,6 @@ require "application_system_test_case"
 class CarsTest < ApplicationSystemTestCase
   setup do
     @car = cars(:one)
-    @make = Make.first    #####
   end
 
   test "visiting the index" do

@@ -27,9 +27,6 @@ class CarsController < ApplicationController
   def search 
   
     @cars = Car.where("vin like :search OR model like :search", search: "%#{params[:query]}%")
-    #Figure out search for makes or delete this
-    #@cars = Car.where("car.make.name like :search", search: "%#{params[:query]}%")
-    #if @cars = nil
     render :index
   end
 
